@@ -2,18 +2,19 @@ var dog,sadDog,happyDog;
 var foodObj;
 var foodS,foodStock;
 var fedTime, lastFed, feed, addFood;
- 
+var database 
+
 function preload()
 {
-	sadDog=loadImage("Images/Dog.png")
-  happyDog=loadImage("Images/happy dog.png")
+	sadDog=loadImage("images/dogImg.png")
+  happyDog=loadImage("images/dogImg1.png")
 
 }
 
 function setup() {
 	database = firebase.database( )
   createCanvas(1000, 400);
-  foodObj = newFood ()
+  foodObj = new Food ()
 
     foodStock = database.ref('food');
     foodStock.on("value", readStock);
@@ -61,6 +62,7 @@ function draw() {
 function readStock(data){
   foodS = data.val()
   foodObj.updateFoodStock(foodS)
+console.log("running2")
 }
 function feedDog(){
   dog.addImage(happyDog)
@@ -74,6 +76,6 @@ function feedDog(){
 function addFoods(){
   foodS++;
   database.ref('/').update({
-    Food:FoodS
+    Food:foodS
   })
 }

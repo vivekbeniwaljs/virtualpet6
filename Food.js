@@ -8,7 +8,7 @@ class Food{
     }
  updateFoodStock(foodStock){
      this.foodStock = foodStock
-
+console.log("RUNNING")
  }
   getFedTime(lastFed){
       this.lastFed = lastFed;
@@ -35,7 +35,7 @@ display(){
                 x=80
                 y=y+50
             }
-            this.image(this.image,x,y,50,50)
+            image(this.image,x,y,50,50)
             x=x+30
         }
     }
